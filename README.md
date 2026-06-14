@@ -1,23 +1,31 @@
-# kchiro
+# Kchiro — AI-Powered Procedural 3D Asset Studio
 
-kchiro is a local-first procedural 3D asset generator and layout studio. It turns text prompts into validated asset parameters, generates Blender geometry, previews models in the browser, and exports assets, rooms, houses, and city layouts for Blender or 3D printing.
+Kchiro is a local-first procedural 3D asset generator and layout studio. It turns natural language text prompts into validated asset parameters, generates Blender geometry programmatically, previews models interactively in the browser, and exports individual assets, complete rooms, houses, and city layouts for Blender or 3D printing.
+
+## Design & UI Aesthetics
+
+Kchiro features a professional, visually stunning, custom dark-mode interface:
+- **Steel-Blue Midnight Theme**: Coordinated dark navy and steel-blue palette inspired by the Kchiro branding.
+- **Elegant & Traditional Typography**: High-fidelity Google Fonts (`Playfair Display` for headers and `Lora` for body/values) replacing standard sans-serif/monospace for a classic, literary visual feel.
+- **High-Contrast Input Fields**: Re-styled numerical input boxes featuring black letters on a clean white background for absolute legibility.
+- **Collapsible Presets Control**: Collapsible, categorized prompt presets so you can quickly build presets or prompts without cluttering the screen.
+- **Simplified Workflow**: Streamlined sidebar layouts, focusing entirely on the 3D Room Designer experience.
 
 ## What It Can Do
 
-- Generate procedural 3D assets from text prompts.
-- Preview generated GLB files in a React/Three.js frontend.
-- Build room, house, and 3D city layouts with placed assets.
-- Export individual assets as GLB or STL.
-- Export rooms and city plans as Blender `.blend` files.
-- Use local Ollama/Qwen for prompt-to-JSON parsing.
-- Run entirely on your machine, with no hosted backend required.
+- **Text-to-3D Generation**: Enter natural prompts to generate fully detailed procedural Blender assets (e.g., *a modern kitchen island* or *an elegant wooden desk*).
+- **Interactive 3D Viewport**: Rotate, position, scale, and color-customize models directly in the browser.
+- **Asset Hierarchy & Checklists**: Easily pick, transform, and keep track of items across rooms.
+- **Room & House Builder**: Build full houses or compact city blocks with customized sidewalk widths, lanes, and setbacks.
+- **Blender & STL Export**: Save assets as standard `.glb` or `.stl` format, or export entire layout designs directly as native `.blend` files.
+- **Local LLM Engine**: Use local Ollama and `qwen2.5:7b` to keep everything offline, private, and fast.
 
 ## Tech Stack
 
-- Frontend: React, Vite, Three.js
-- Backend: FastAPI, Pydantic, SQLite
-- AI parser: Ollama running `qwen2.5:7b` by default
-- 3D engine: Blender Python scripts run in background mode
+- **Frontend**: React, Vite, Three.js
+- **Backend**: FastAPI (Python), Pydantic, SQLite
+- **AI Engine**: Local Ollama Server (`qwen2.5:7b`)
+- **3D Runner**: Blender Python API run headlessly in background mode
 
 ## How The Pipeline Works
 

@@ -1186,6 +1186,7 @@ function App() {
   const [generationColor, setGenerationColor] = useState('#8b5cf6');
   const [useGenerationColor, setUseGenerationColor] = useState(false);
   const [customColor, setCustomColor] = useState('');
+  const [showPresets, setShowPresets] = useState(false);
   const modelViewerRef = useRef(null);
   const modelViewerOriginalColorRef = useRef(new WeakMap());
 
@@ -2106,9 +2107,9 @@ function App() {
 
       {/* Sidebar - Recent Generations */}
       <aside className="sidebar">
-        <div className="sidebar-header">
-          <div className="logo-icon">A</div>
-          <span className="logo-text">kchiro</span>
+        <div className="sidebar-header" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <img src="/logo.png" alt="KCHIRO Logo" style={{ width: '38px', height: '38px', borderRadius: '4px', objectFit: 'contain' }} />
+          <span className="logo-text" style={{ fontSize: '20px', letterSpacing: '0.05em' }}>KCHIRO</span>
         </div>
         
         <div className="sidebar-title-row">
@@ -2214,10 +2215,20 @@ function App() {
               />
               <span className="color-value-text">{generationColor.toUpperCase()}</span>
             </div>
+
+            <button
+              type="button"
+              className="secondary-action-btn presets-toggle-btn"
+              onClick={() => setShowPresets(!showPresets)}
+              style={{ marginLeft: 'auto', padding: '6px 12px', fontSize: '12px', height: '28px', minHeight: 'unset', display: 'flex', alignItems: 'center' }}
+            >
+              <span>{showPresets ? 'Hide Presets 📂' : 'Show Presets 📁'}</span>
+            </button>
           </div>
 
           {/* Categorized Quick Presets */}
-          <div className="presets-container">
+          {showPresets && (
+            <div className="presets-container">
             <div className="presets-group">
               <span className="presets-group-label">🪑 Seating & Beds</span>
               <div className="presets-row">
@@ -2554,6 +2565,7 @@ function App() {
               </div>
             </div>
           </div>
+        )}
 
           {/* Error Message Box */}
           {error && (
@@ -2587,27 +2599,6 @@ function App() {
           >
             <SparklesIcon />
             <span>3D Room Designer</span>
-          </button>
-          <button
-            type="button"
-            className={`view-tab-btn ${activeTab === 'city' ? 'active' : ''}`}
-            onClick={() => setActiveTab('city')}
-          >
-            <span>City Planner</span>
-          </button>
-          <button
-            type="button"
-            className={`view-tab-btn ${activeTab === 'game' ? 'active' : ''}`}
-            onClick={() => setActiveTab('game')}
-          >
-            <span>Game Asset Studio</span>
-          </button>
-          <button
-            type="button"
-            className={`view-tab-btn ${activeTab === 'movie' ? 'active' : ''}`}
-            onClick={() => setActiveTab('movie')}
-          >
-            <span>Movie Production Panel</span>
           </button>
         </div>
 
@@ -3353,8 +3344,8 @@ function App() {
                             disabled={key === 'ensuiteBathrooms' && !houseConfig.attachBathroomToBedroom}
                             onChange={(e) => handleHouseConfigChange(key, parseInt(e.target.value, 10) || 0)}
                             style={{
-                              backgroundColor: 'rgba(15, 23, 42, 0.8)',
-                              color: 'white',
+                              backgroundColor: '#ffffff',
+                              color: '#000000',
                               border: '1px solid var(--border-light)',
                               borderRadius: '8px',
                               padding: '8px 10px',
@@ -3410,8 +3401,8 @@ function App() {
                           value={houseConfig.roadLanes}
                           onChange={(e) => handleHouseConfigChange('roadLanes', parseInt(e.target.value, 10) || 1)}
                           style={{
-                            backgroundColor: 'rgba(15, 23, 42, 0.8)',
-                            color: 'white',
+                            backgroundColor: '#ffffff',
+                            color: '#000000',
                             border: '1px solid var(--border-light)',
                             borderRadius: '8px',
                             padding: '8px 10px',
@@ -3429,8 +3420,8 @@ function App() {
                           value={houseConfig.sidewalkWidth}
                           onChange={(e) => handleHouseConfigChange('sidewalkWidth', parseFloat(e.target.value) || 0.8)}
                           style={{
-                            backgroundColor: 'rgba(15, 23, 42, 0.8)',
-                            color: 'white',
+                            backgroundColor: '#ffffff',
+                            color: '#000000',
                             border: '1px solid var(--border-light)',
                             borderRadius: '8px',
                             padding: '8px 10px',
@@ -3448,8 +3439,8 @@ function App() {
                           value={houseConfig.setbackWidth}
                           onChange={(e) => handleHouseConfigChange('setbackWidth', parseFloat(e.target.value) || 0.8)}
                           style={{
-                            backgroundColor: 'rgba(15, 23, 42, 0.8)',
-                            color: 'white',
+                            backgroundColor: '#ffffff',
+                            color: '#000000',
                             border: '1px solid var(--border-light)',
                             borderRadius: '8px',
                             padding: '8px 10px',
