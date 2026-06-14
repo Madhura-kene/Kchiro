@@ -1,4 +1,4 @@
-# Kchiro — AI-Powered Procedural 3D Asset Studio
+# KChiro — AI-Powered Procedural 3D Asset Studio
 
 Kchiro is a local-first procedural 3D asset generator and layout studio. It turns natural language text prompts into validated asset parameters, generates Blender geometry programmatically, previews models interactively in the browser, and exports individual assets, complete rooms, houses, and city layouts for Blender or 3D printing.
 
