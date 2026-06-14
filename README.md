@@ -167,6 +167,4 @@ exports/      Generated GLB/Blend/STL output, ignored by git
 renders/      Generated preview PNG output, ignored by git
 ```
 
-## License
 
-No license has been selected yet. Before publishing publicly, add a `LICENSE` file that matches how you want other people to use the project.
